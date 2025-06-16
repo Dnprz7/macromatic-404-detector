@@ -78,7 +78,6 @@ class Macromatic_404_Detector {
 		$this->set_locale();
 		$this->define_admin_hooks();
 		$this->define_public_hooks();
-
 	}
 
 	/**
@@ -157,6 +156,8 @@ class Macromatic_404_Detector {
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
 
+        //action hook for admin menu
+        $this->loader->add_action( 'admin_menu', $plugin_admin, 'macromatic_404_detector_menu' );
 	}
 
 	/**

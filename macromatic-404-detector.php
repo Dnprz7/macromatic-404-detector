@@ -80,3 +80,14 @@ function run_macromatic_404_detector() {
 
 }
 run_macromatic_404_detector();
+
+if(!class_exists('Macromatic_404_Detector')) {
+    class Macromatic_404_Detector {
+        public function __construct() {
+            define('MY_PLUGIN_PATH', plugin_dir_path( __FILE__ ));
+            require_once(MY_PLUGIN_PATH . '/vendor/autoload.php');
+        }
+    }
+
+    new Macromatic_404_Detector();
+}

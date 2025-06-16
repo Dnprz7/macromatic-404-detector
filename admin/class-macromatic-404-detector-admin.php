@@ -100,4 +100,50 @@ class Macromatic_404_Detector_Admin {
 
 	}
 
+    //create menu method
+    public function macromatic_404_detector_menu() {
+        add_menu_page(
+            'Macromatic 404 Detector Tool',
+            'Macromatic 404 Detector',
+            'manage_options',
+            'macromatic-404-detector-tool',
+            array($this, 'macromatic_404_detector_plugin'),
+            'dashicons-admin-links',
+            22
+        );
+
+        //create plugin submenus
+        add_submenu_page(
+            'macromatic-404-detector-tool',
+            'Create Report',
+            'Create Report',
+            'manage_options',
+            'macromatic-404-detector-dashboard',
+            array($this, 'macromatic_404_detector_dashboard'),
+        );
+
+        add_submenu_page(
+            'macromatic-404-detector-tool',
+            'All Reports',
+            'All Reports',
+            'manage_options',
+            'macromatic-404-detector-reports',
+            array($this, 'macromatic_404_detector_reports'),
+        );
+    }
+
+    //menu callback function
+    public function macromatic_404_detector_plugin() {
+        echo '<h3>Welcome to Macromatic 404 Detector Menu</h3>';
+    }
+
+    //submenu callback function
+    public function macromatic_404_detector_dashboard() {
+        echo '<h3>Welcome to Macromatic 404 Detector Dashboard</h3>';
+    }
+
+    //submenu callback function
+    public function macromatic_404_detector_reports() {
+        echo '<h3>Welcome to Macromatic 404 Detector Reports</h3>';
+    }
 }
